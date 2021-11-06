@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
+
+:root {
+   --lt-gray-blue: hsl(210, 46%, 95%);
+   --gray-blue: hsl(212, 23%, 69%);
+   --des-dk-blue: hsl(214, 17%, 51%);
+   --very-dk-blue: hsl(217, 19%, 35%);
+}
+
+* {
+   margin: 0;
+   box-sizing: border-box;
+}
+
+html {
+   scroll-behavior: smooth;
+   font-size: 100%;
+}
+
+body {
+   font-family: Manrope, system-ui;
+   min-height: 100vh;
+   background-color: var(--lt-gray-blue);
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 90%;
+   margin: 0 auto;
+}
+
+img {
+   display: block;
+   max-width: 100%;
+}
+
+.attribution {
+   font-size: 11px;
+   text-align: center;
+   margin-top: 2em;
+}
+.attribution a {
+   color: hsl(228, 45%, 44%);
+}
+
+.card {
+   max-width: 54rem;
+   display: flex;
+   background-color: #fff;
+   box-shadow: 0 5px 20px var(--gray-blue);
+   border-radius: 1em;
+   position: relative;
+}
+
+.card__image {
+   min-width: 320px;
+   overflow: hidden;
+   border-bottom-left-radius: 1em;
+   border-top-left-radius: 1em;
+}
+
+.card__image > img {
+   height: 100%;
+   width: 100%;
+   object-position: left;
+   object-fit: cover;
+}
+
+.card__info {
+   margin: 3em;
+}
+
+.card__info_title {
+   color: var(--very-dk-blue);
+   font-size: 1.5rem;
+   font-weight: 700;
+   margin-bottom: 0.5em;
+}
+
+.card__info_body {
+   color: var(--des-dk-blue);
+   font-size: 1rem;
+   font-weight: 500;
+   line-height: 1.5;
+   margin-bottom: 1.5em;
+}
+
+.card__footer {
+   display: flex;
+   align-items: center;
+}
+
+.card__footer > img {
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   margin-right: 1em;
+}
+
+.card__footer_name {
+   color: var(--very-dk-blue);
+   font-weight: 700;
+}
+
+.card__footer_date {
+   color: var(--des-dk-blue);
+   font-size: 0.875rem;
+   font-weight: 500;
+   margin-top: 3px;
+}
+
+.card__footer_share {
+   margin-left: auto;
+   background-color: var(--lt-gray-blue);
+   width: 35px;
+   height: 35px;
+   border-radius: 50%;
+   cursor: pointer;
+}
+
+.card__footer_share:hover {
+   background-color: var(--gray-blue);
+}
+
+.card__footer_share:hover path,
+.share__btn path {
+   fill: #fff;
+}
+
+.card__footer_share > svg {
+   margin: 10px;
+}
+
+.share {
+   display: none;
+}
+
+.share.show {
+   position: absolute;
+   bottom: 6em;
+   right: -2em;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   width: 15em;
+   height: 3em;
+   border-radius: 8px;
+   background-color: var(--very-dk-blue);
+   color: #fff;
+   text-align: center;
+   box-shadow: 0 2px 8px #00000080;
+}
+
+.share__text {
+   letter-spacing: 5px;
+   color: var(--gray-blue);
+   font-size: 0.875rem;
+}
+
+.share__btn {
+   display: none;
+}
+
+.share i {
+   position: absolute;
+   top: 100%;
+   left: 60%;
+   margin-left: -15px;
+   width: 30px;
+   height: 15px;
+   overflow: hidden;
+}
+
+.share i::after {
+   content: '';
+   position: absolute;
+   width: 15px;
+   height: 15px;
+   left: 50%;
+   transform: translate(-50%, -50%) rotate(45deg);
+   background-color: var(--very-dk-blue);
+}
+
+@media (max-width: 792px) {
+   .card {
+      flex-direction: column;
+      max-width: 500px;
+   }
+
+   .card__image {
+      width: 100%;
+      height: 240px;
+      border-top-right-radius: 1em;
+      border-bottom-left-radius: 0;
+   }
+
+   .card__image > img {
+      object-position: top left;
+   }
+
+   .share.show {
+      bottom: 6em;
+      right: 2em;
+   }
+
+   .share i {
+      left: 86%;
+      margin-left: -15px;
+   }
+}
+
+@media (max-width: 480px) {
+   .card__image {
+      height: 200px;
+   }
+
+   .card__info {
+      margin: 2em;
+   }
+
+   .card__info_title {
+      font-size: 1.0625rem;
+      margin-bottom: 0.875em;
+   }
+
+   .card__info_body,
+   .card__footer_name,
+   .card__footer_date {
+      font-size: 0.875rem;
+   }
+
+   .card__footer > img {
+      width: 45px;
+      height: 45px;
+   }
+
+   .share.show {
+      width: auto;
+      height: 5em;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      box-shadow: none;
+   }
+
+   .share__btn {
+      display: block;
+      background-color: var(--des-dk-blue);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+   }
+
+   .share__btn:hover {
+      background-color: var(--gray-blue);
+   }
+
+   .share__btn > svg {
+      margin: 8px;
+   }
+
+   .share i {
+      display: none;
+   }
+}
